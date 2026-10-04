@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Twitch Channel Points Farmer",
+  "version": "0.2.0",
+  "description": "Automatically opens the live streams you pick from your follows, in a lightweight mode, and claims channel points for you.",
+  "permissions": ["storage", "alarms", "tabs", "identity"],
+  "host_permissions": ["https://api.twitch.tv/*", "https://id.twitch.tv/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_title": "Twitch Channel Points Farmer" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.twitch.tv/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
